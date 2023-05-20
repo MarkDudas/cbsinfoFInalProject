@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Records</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    *{
+      font-family: Poppins, sans-serif;
+      
+    }
+    .home {
+  background: url(http://sixcolors.com/images/content/2015/mbstarbucks-bleed.jpg);
+}
+    body {
+      background-color: #f8f9fa;
+    }
+    
+    .container-fluid {
+      padding-top: 30px;
+    }
+    
+    .table-responsive {
+      margin-top: 20px;
+    }
+
+    h1 {
+color: red;
+  text-align: center;
+  
+ }
+
+a {
+text-align: center;
+
+}
+
+
+/* Add a black background color to the top navagation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  text-align: center;
+}
+/* Style the links inside the navagation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+background-color: #ddd;
+  color: red;
+}
+/* Add a color to the active/current link */
+.topnav a.active {
+background-color: #04aa6d;
+  color: white;
+  text-align: center;
+}
+  </style>
+</head>
+<body>
+  <h1>
+    Account Records
+     </h1>
+ <section>
+   <nav class="topnav">
+    <a class="active"
+       href="/logout">Logout</a>
+   </nav> 
+  </section>
+  
+  <section></section>
+  <!-- END NAVAGATION BAR -->
+  <!-- HOME -->
+  <div class="container" id="#">
+    <section class="home">
+
+    </section>
+  </div>
+  <!-- END HOME -->  
+  
+</body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <tr> 
+        <div class="table-responsive">
+          <table class="table table-hover table-bordered">
+            <thead>
+              <tr> 
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Usertype</th> 
+                <th scope="col" colspan="2">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% let counter = 1 %> 
+                <% if (users.length > 0) { %>
+                  <% users.forEach(function(user) { %>
+                    <tr>
+                      <td><%= counter %></td>
+                      <td><%= user.username %></td>
+                      <td><%= user.email %></td> 
+                      <td><%= user.password.substr(0, 8) + '...' %></td>
+                      <td><%= user.usertype %></td>
+                      <td>
+                        <div class="btn-group">
+                          <!-- Edit button in the table -->
+                          <form action="/admin/edit" method="post">
+                            <input type="hidden" name="userId" value="<%= user.id %>">
+                            <button type="submit" class="btn btn-primary mr-2">Edit</button>
+                          </form>  
+                          <form action="/admin/delete" method="post">
+                            <input type="hidden" name="userId" value="<%= user.id %>">
+                            <button type="submit" class="btn btn-danger mr-2">Delete</button>
+                          </form>                        
+                           </div>
+                      </td> 
+            
+                    </tr>
+                    <% counter++ %>
+                  <% }); %>
+                <% } else { %>
+                  <tr>
+                    <td colspan="8">No users found</td>
+                  </tr>
+                <% } %>
+              </tbody>
+          </table>
+        </div>
+        
+        <nav aria-label="Pagination">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  
+      <!-- jQuery -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-n/4gHWY7TPBZj7Fk8g9WEQ0tJvQ+fdyG/m8iXMHuZQM4XUOjuj9ZzQGsbyRocI2IJHVv5h0ST2qvQa0mGfHv8w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <!-- Bootstrap Bundle -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <script>
+    function editUser(userId) {
+      // Implement your edit user logic here
+      console.log("Edit user with ID:", userId);
+    }
+    
+    function deleteUser(userId) {
+      // Implement your delete user logic here
+      console.log("Delete user with ID:", userId);
+    }
+  </script>
+</body>
+</html>

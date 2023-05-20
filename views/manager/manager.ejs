@@ -1,0 +1,119 @@
+<div class="workspace">
+  <section class="client-list">
+    <div class="flex flex-col justify-center align-center">
+      <p class="heading-sm">Friday, 24</p>
+     <p class="heading-lg">16 : 23</p>
+    </div>
+  </section>
+   <section class="stats">
+     <header class="stats-heading mb-6">My Stats</header>
+     <div class="flex space-x-4">
+       <div class="card card-color shadow-lg w-48 p-2 rounded-xl">
+         <div class="font-thin text-sm text-right">50</div>
+         <div class="pl-4">
+           <span class="block font-semibold text-sm">Call Plan</span>
+         <span class="text-4xl font-bold">14</span>
+           <span class="inline mx-1 font-thin text-sm">left</span>
+         </div>
+       </div>
+       <div class="shadow-lg p-4">
+         A
+       </div>
+       <div class="shadow-lg p-4">
+         A
+       </div>
+     </div>
+   </section>
+   
+    <a class="w3-bar-item w3-button"
+    href="/logout">Logout</a>
+ </div>
+  
+ </div>
+ <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  .w3-bar-item w3-button{
+      text-decoration: none;
+  }
+:root {
+  --border-radius: 15px;
+  --section-padding: 20px;
+  --padding-lg: 50px;
+  --card: #495564;
+}
+body {
+  background: #181d23;
+  padding: 10px;
+  color: #edeeee;
+  font-family: 'Poppins', sans-serif;
+}
+
+.workspace {
+  border-radius: var(--border-radius);
+  min-height: 100vh;
+  background: linear-gradient(to right, #36404b, #3d4754, #282f38);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 5px;
+  padding: var(--section-padding);
+}
+
+.card-color {
+  background: var(--card);
+}
+
+.client-list {
+  background: #4c586a;
+  border-radius: var(--border-radius);
+  padding: var(--padding-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats {
+  padding: var(--section-padding);
+}
+
+.stats-heading {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.summary {
+  padding: var(--section-padding);
+}
+
+.heading-sm {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.heading-lg {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0;
+}
+
+.heading-xl {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+ </style>

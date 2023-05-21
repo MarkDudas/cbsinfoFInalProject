@@ -13,6 +13,7 @@ var managerRouter = require('./routes/manager');
 
 
 var app = express();
+const port = 5000
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -47,5 +48,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('login');
 });
+
+app.listen(process.env.PORT || port, () => console.log(`listening on port $(port`))
 
 module.exports = app;
